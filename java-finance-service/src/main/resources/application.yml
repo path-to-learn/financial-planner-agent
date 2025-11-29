@@ -1,0 +1,29 @@
+# java-finance-service/src/main/resources/application.yml
+spring:
+  application:
+    name: java-finance-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/finance
+    username: finance_user
+    password: finance_pass
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # For dev; later we can move to Flyway
+    properties:
+      hibernate:
+        format_sql: true
+    show-sql: true
+
+  sql:
+    init:
+      mode: never
+
+  cache:
+    type: simple  # we’ll switch to Redis later
+
+server:
+  port: 8080
+
